@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8 offset-sm-2 col-sm-12  col-lg-6 offset-lg-3">
+            <ul class="list-group">
+
+                {% for lien in liens %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    {{lien.Nom}}
+                    <div>
+                        <a title="edit" class="lien-chanson" href={{path('editSong', {'id':lien.id})}}><span class="badge badge-primary badge-pill">{% include 'pencil-edit.html.twig' %}</span></a>
+                        <a title="delete" class="lien-chanson"href={{path('deleteSong', {'id':lien.id})}}><span class="badge badge-primary badge-pill ">{% include 'cross.html.twig' %}</span></a>
+                    <div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 20px;">
+        <a href={{path('addSong')}} class="btn btn-primary" style="margin: auto">Ajouter une chanson</a>
+    </div>
+</div>
+{% endblock %}
