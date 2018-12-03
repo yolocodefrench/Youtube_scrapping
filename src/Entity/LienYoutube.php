@@ -26,6 +26,16 @@ class LienYoutube
      */
     private $Nom;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isTreated;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $hasFailed;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -51,6 +61,30 @@ class LienYoutube
     public function setNom(string $Nom): self
     {
         $this->Nom = $Nom;
+
+        return $this;
+    }
+
+    public function getIsTreated(): ?bool
+    {
+        return $this->isTreated;
+    }
+
+    public function setIsTreated(bool $isTreated): self
+    {
+        $this->isTreated = $isTreated;
+
+        return $this;
+    }
+
+    public function getHasFailed(): ?int
+    {
+        return $this->hasFailed;
+    }
+
+    public function setHasFailed(int $hasFailed): self
+    {
+        $this->hasFailed = $hasFailed;
 
         return $this;
     }
