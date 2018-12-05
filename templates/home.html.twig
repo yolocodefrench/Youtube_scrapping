@@ -19,7 +19,7 @@
                         
                     </div>
                     <div>
-                    {% if lien.isTreated == false or lien.hasFailed > 0 %}
+                    {% if lien.hasSucceed == false %}
                         <a title="edit" class="lien-chanson" href={{path('editSong', {'id':lien.id})}}><span class="badge badge-primary badge-pill">{% include 'pencil-edit.html.twig' %}</span></a>
                         <a title="delete" class="lien-chanson"href={{path('deleteSong', {'id':lien.id})}}><span class="badge badge-primary badge-pill ">{% include 'cross.html.twig' %}</span></a>
                     {% endif %}
