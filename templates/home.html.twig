@@ -11,7 +11,7 @@
                     <div>
                         {% if lien.isTreated == true and lien.hasFailed == 0 %}
                             {% include  'check.html.twig' %}{{lien.Nom}}
-                        {% elseif lien.hasFailed > 0 %}
+                        {% elseif lien.hasFailed > 0  && lien.hasSucceed == false %}
                             {% include  'red-cross.html.twig' %}{{lien.Nom}}
                         {% else %}
                             <div style="margin-left:15px">{{lien.Nom}}</div>
