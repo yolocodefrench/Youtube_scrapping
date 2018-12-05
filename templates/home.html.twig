@@ -9,7 +9,7 @@
                 {% for lien in liens %}
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     <div>
-                        {% if lien.isTreated == true and lien.hasFailed == 0 %}
+                        {% if lien.hasSucceed == true %}
                             {% include  'check.html.twig' %}{{lien.Nom}}
                         {% elseif lien.hasFailed > 0  and lien.hasSucceed == false %}
                             {% include  'red-cross.html.twig' %}{{lien.Nom}}
