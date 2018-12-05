@@ -36,6 +36,11 @@ class LienYoutube
      */
     private $hasFailed;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $hasSucceed;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -85,6 +90,18 @@ class LienYoutube
     public function setHasFailed(int $hasFailed): self
     {
         $this->hasFailed = $hasFailed;
+
+        return $this;
+    }
+
+    public function getHasSucceed(): ?bool
+    {
+        return $this->hasSucceed;
+    }
+
+    public function setHasSucceed(bool $hasSucceed): self
+    {
+        $this->hasSucceed = $hasSucceed;
 
         return $this;
     }

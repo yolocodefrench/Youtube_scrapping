@@ -8,11 +8,22 @@
 
                 {% for lien in liens %}
                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                    {{lien.Nom}}
                     <div>
+                        {% if lien.isTreated == true and lien.hasFailed == 0 %}
+                            {% include  'check.html.twig' %}{{lien.Nom}}
+                        {% elseif lien.hasFailed > 0 %}
+                            {% include  'red-cross.html.twig' %}{{lien.Nom}}
+                        {% else %}
+                            <div style="margin-left:15px">{{lien.Nom}}</div>
+                        {% endif %}
+                        
+                    </div>
+                    <div>
+                    {% if lien.isTreated == false or lien.hasFailed > 0 %}
                         <a title="edit" class="lien-chanson" href={{path('editSong', {'id':lien.id})}}><span class="badge badge-primary badge-pill">{% include 'pencil-edit.html.twig' %}</span></a>
                         <a title="delete" class="lien-chanson"href={{path('deleteSong', {'id':lien.id})}}><span class="badge badge-primary badge-pill ">{% include 'cross.html.twig' %}</span></a>
-                    <div>
+                    {% endif %}
+                    </div>
                 </li>
                 {% endfor %}
             </ul>
