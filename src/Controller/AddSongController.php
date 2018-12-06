@@ -24,6 +24,7 @@ class AddSongController extends AbstractController
             $lien = $form->getData();
             $lien->setIsTreated(false);
             $lien->setHasFailed(0);
+            $lien->setHasSucceed(False);
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($lien);
@@ -48,6 +49,7 @@ class AddSongController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $lien = $form->getData();
+            
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($lien);
